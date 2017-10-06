@@ -118,7 +118,7 @@ exometer_unsubscribe(Metric, DataPoint, Extra, St) ->
     disable_inform(Entry, DataPoint, Extra, St).
 
 exometer_report(Metric, DataPoint, _Extra, Value, St)  ->
-    ?debug("Report metric ~p_~p = ~p~n", [Metric, DataPoint, Value]),
+    %% ?debug("Report metric ~p_~p = ~p~n", [Metric, DataPoint, Value]),
     Inform = erlang:binary_to_existing_atom(inform_name(Metric, DataPoint), latin1),
     VarName = erlang:binary_to_existing_atom(metric_name(Metric, DataPoint), latin1),
     Varbinds = [{VarName, Value}],
